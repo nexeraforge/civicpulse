@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --color-primary-blue: #0066FF;
+  --color-primary-soft: #3B82F6;
+  --color-primary-green: #10B981;
+  --color-primary-green-soft: #34D399;
+  
+  --color-brand-bg: #F8FAFC;
+  --color-brand-card: #FFFFFF;
+  --color-brand-text: #0F172A;
+  --color-brand-textSecondary: #64748B;
+
+  --color-status-success: #10B981;
+  --color-status-warning: #F59E0B;
+  --color-status-danger: #EF4444;
+
+  --radius-card: 24px;
+  --radius-btn: 18px;
+
+  --font-poppins: 'Outfit', sans-serif;
+  --font-inter: 'Plus Jakarta Sans', sans-serif;
+
+  --shadow-soft: 0 10px 30px -10px rgba(10, 88, 202, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --shadow-premium: 0 20px 40px -15px rgba(10, 88, 202, 0.05), 0 1px 5px rgba(0, 0, 0, 0.02);
+  
+  --shadow-glow-primary: 0 0 25px 3px rgba(0, 102, 255, 0.08);
+  --shadow-glow-success: 0 0 25px 3px rgba(16, 185, 129, 0.08);
+  --shadow-glow-warning: 0 0 25px 3px rgba(245, 158, 11, 0.08);
+  --shadow-glow-danger: 0 0 25px 3px rgba(239, 68, 68, 0.08);
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-inter);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.02) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Custom visual design utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.glass-navbar {
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-primary-blue), var(--color-primary-green));
+}
+
+.gradient-btn {
+  background-image: linear-gradient(135deg, var(--color-primary-blue), var(--color-primary-green));
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gradient-btn:hover {
+  box-shadow: var(--shadow-glow-primary);
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.gradient-btn:active {
+  transform: translateY(1px);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* Leaflet Maps overrides */
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: 20px;
+  z-index: 1;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: #F8FAFC !important;
+}
+
+/* Make Leaflet Popups look gorgeous and light */
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
+}
+
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+  border-left: 1px solid rgba(15, 23, 42, 0.06) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Glow card effects */
+.glow-card {
+  transition: all 0.3s ease;
+}
+
+.glow-card:hover {
+  border-color: rgba(0, 102, 255, 0.12) !important;
+  box-shadow: 0 12px 35px -10px rgba(0, 102, 255, 0.05) !important;
+}
+
+/* Micro-animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s infinite ease-in-out;
+}
